@@ -33,7 +33,8 @@ public class PersonDTO {
         this.ID = pe.getId();
     }
 
-
+    public PersonDTO() {
+    }
 
     public static List<PersonDTO> getPersonDTO(List<PersonEntity> pe){
         List<PersonDTO> pDTO = new ArrayList();

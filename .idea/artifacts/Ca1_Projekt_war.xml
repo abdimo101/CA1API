@@ -10,7 +10,7 @@
       </options>
     </properties>
     <root id="archive" name="devops-starter-1.0.1.war">
-      <element id="artifact" artifact-name="ca1" />
+      <element id="artifact" artifact-name="Ca1-Projekt:war exploded" />
     </root>
   </artifact>
 </component>

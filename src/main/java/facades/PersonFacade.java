@@ -49,6 +49,21 @@ public class PersonFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
+
+    public PersonDTO getById(int id) throws EntityNotFoundException {
+        EntityManager em = getEntityManager();
+        PersonEntity person = em.find(PersonEntity.class, id);
+        try{
+            if (person == null){
+                throw new EntityNotFoundException("Could not find anyone with that id");
+            }
+        } catch (EntityNotFoundException e){
+            throw new WebApplicationException(e.getMessage(), 404);
+        } finally {
+            em.close();
+        }
+        return new PersonDTO(person);
+    }
     
     public PersonDTO createPerson(PersonDTO p) throws InvalidInputException {
         EntityManager em = getEntityManager();
