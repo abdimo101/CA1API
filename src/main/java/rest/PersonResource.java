@@ -63,7 +63,7 @@ public class PersonResource {
 
     @Path("{id}")
     @GET
-    @Produces("application/jsoin")
+    @Produces("application/json")
     public String getById(@PathParam("id")int id) throws EntityNotFoundException {
         return GSON.toJson(FACADE.getById(id));
     }
