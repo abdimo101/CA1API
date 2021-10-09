@@ -1,7 +1,5 @@
 package rest;
-
 import Cors.CorsFilter;
-
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
@@ -27,7 +25,7 @@ public class ApplicationConfig extends Application {
         resources.add(rest.RenameMeResource.class);
         resources.add(rest.PersonResource.class);
         resources.add(rest.CityInfoResource.class);
-        resources.add(Cors.CorsFilter.class);
+        resources.add(CorsFilter.class);
     }
     
 }

@@ -61,7 +61,7 @@ public class PersonResource {
         return GSON.toJson(newpdto);
     }
 
-    @Path("{id}")
+    @Path("/{id}")
     @GET
     @Produces("application/json")
     public String getById(@PathParam("id")int id) throws EntityNotFoundException {

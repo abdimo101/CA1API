@@ -123,5 +123,11 @@
     <orderEntry type="library" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: classworlds:classworlds:1.1-alpha-2" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.0.22" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-catalina:7.0.47" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-servlet-api:7.0.47" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:7.0.47" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-annotations-api:7.0.47" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-api:7.0.47" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-util:7.0.47" level="project" />
   </component>
 </module>
