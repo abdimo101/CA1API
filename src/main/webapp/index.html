@@ -1,1 +1,162 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Webpack/Babel-demo</title></head><body><div id="all-content" style="display: none;"><ul id="menu" class="header"><li><a href="" id="about">About</a></li><li><a href="" id="ex1">Person</a></li><li><a href="" id="ex2">CityInfo</a></li></ul><div class="content"><div id="person_html" style="display:none;"><h3 style="text-align: center;">Person</h3><h4>List of all persons</h4><table id="persons_table" class="table table-striped"><thead><tr><th>Id</th><th>First name</th><th>Last name</th><th>Phone number</th><th>Email Address</th><th>Address</th><th>Zipcode</th><th>City</th><th></th></tr></thead><tbody id="tablerows"></tbody></table><div id="editmodal" class="modal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Edit person</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Edit fields and safe changes</p></div><div class="form-group"><label for="ID">ID</label> <input id="edit_id" name="ID" class="form-control"/></div><div class="form-group"><label for="firstName">First name</label> <input id="firstName" name="firstName" class="form-control"/></div><div class="form-group"><label for="lastName">Last name</label> <input id="lastName" name="lastName" class="form-control"/></div><div class="form-group"><label for="phoneNumber">Phone number</label> <input id="phoneNumber" name="phoneNumber" class="form-control"/></div><div class="form-group"><label for="emailAddress">Email Address</label> <input id="emailAddress" name="emailAddress" class="form-control"/></div><div class="form-group"><label for="Address">Address</label> <input id="Address" name="Address" class="form-control"/></div><div class="form-group"><label for="zipcode">Zipcode</label> <input id="zipcode" name="zipcode" class="form-control"/></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> <button id="edit-safebtn" type="button" class="btn btn-primary">Save changes</button></div></div></div></div><div id="deletemodal" class="modal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Delete person</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="form-group"><label for="ID">ID</label> <input id="delete_id" name="ID" class="form-control"/></div><div class="modal-body"><p>Confirm the person you want to delete and safe changes</p></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> <button id="delete-safebtn" type="button" class="btn btn-primary">Safe changes</button></div></div></div></div><h6>Get persons by Hobby (name)</h6><ul id="hobbies"></ul><form id="hobby_inputform"><input id="hobby_textinput"/> <button id="getbyhobbybtn">Submit</button></form><br><h6>Get persons by phone</h6><ul id="phones"></ul><form id="phone_inputform"><input id="phone_textinput"/> <button id="getbyphonebtn">Submit</button><br><br><button id="createPerson_btn" type="button" class="btn btn-primary">Create Person</button><br><br><form><label for="create_fname">First name:</label><br><input id="create_fname" name="create_fname"><br><label for="create_lname">Last name:</label><br><input id="create_lname" name="create_lname"><br><label for="create_phone">Phone number:</label><br><input id="create_phone" name="create_phone"><br><label for="create_email">Email address:</label><br><input id="create_email" name="create_email"><br><label for="create_address">Address:</label><br><input id="create_address" name="create_address"><br><label for="create_zipcode>">Zipcode:</label><br><input id="create_zipcode" name="create_zipcode"></form></form></div><div id="cityinfo_html" style="display:none;"><h3 style="text-align: center;">Cityinfo</h3><h6>Get City by zipcode</h6><ul id="cities"></ul><form id="city_inputform"><input id="zipcode_textinput"/> <button id="getbyzipcodebtn">Enter</button></form><br><h6 id="ex2p">List of all cities</h6><table id="cityinfo_table" class="table table-striped"><thead><tr><th>Zipcode</th><th>City</th></tr></thead><tbody id="cityrows"></tbody></table></div><div id="ex3_html" style="display:none;"><h3>Ex-3</h3><p>Add your basic HTML for Exercise 3 here</p><div class="row" style="min-height: 5em;"><div class="col-md-8 pre-scrollable" style="background-color: lightgrey;"><h5>All Users</h5><table class="table"><thead><tr><th>Id</th><th>Age</th><th>Name</th><th></th><th>Gender</th><th>Email</th></tr></thead><tbody id="allUserRows"><tbody></tbody></tbody></table></div><div class="col-md-4" style="background-color: powderblue;"><h5>Find User</h5></div></div><div class="row" style="min-height: 5em;"><div class="col-md-4" style="background-color: powderblue;"><h5>Add User</h5></div><div class="col-md-4" style="background-color: lightgrey;"><h5>Edit User</h5></div><div class="col-md-4" style="background-color: powderblue;"><h5>Delete User</h5></div></div></div><div id="about_html" style="display:none;"><h3 style="text-align: center;">About</h3><h4 style="text-align: center;">CA1 Single Page Application</h4><h5 style="text-align: center;">Name: Abdi Abdulle<h5 style="text-align: center;">Group: A6</h5></h5></div></div><!-- #################################################################--><!-- #################################################################--><script src="../../../../CA1SPA/SimpleWebpackBabelForPlainJS/build/bundle.js"></script></div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Webpack/Babel-demo</title></head>
+<body>
+<div id="all-content" style="display: none;">
+    <ul id="menu" class="header">
+        <li><a href="" id="about">About</a></li>
+        <li><a href="" id="ex1">Person</a></li>
+        <li><a href="" id="ex2">CityInfo</a></li>
+    </ul>
+    <div class="content">
+        <div id="person_html" style="display:none;"><h3 style="text-align: center;">Person</h3><h4>List of all
+            persons</h4>
+            <table id="persons_table" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Phone number</th>
+                    <th>Email Address</th>
+                    <th>Address</th>
+                    <th>Zipcode</th>
+                    <th>City</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody id="tablerows"></tbody>
+            </table>
+            <div id="editmodal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"><h5 class="modal-title">Edit person</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"><p>Edit fields and safe changes</p></div>
+                        <div class="form-group"><label for="edit_id">ID</label> <input id="edit_id" name="edit_id"
+                                                                                  class="form-control"/></div>
+                        <div class="form-group"><label for="firstName">First name</label> <input id="firstName"
+                                                                                                 name="firstName"
+                                                                                                 class="form-control"/>
+                        </div>
+                        <div class="form-group"><label for="lastName">Last name</label> <input id="lastName"
+                                                                                               name="lastName"
+                                                                                               class="form-control"/>
+                        </div>
+                        <div class="form-group"><label for="phoneNumber">Phone number</label> <input id="phoneNumber"
+                                                                                                     name="phoneNumber"
+                                                                                                     class="form-control"/>
+                        </div>
+                        <div class="form-group"><label for="emailAddress">Email Address</label> <input id="emailAddress"
+                                                                                                       name="emailAddress"
+                                                                                                       class="form-control"/>
+                        </div>
+                        <div class="form-group"><label for="Address">Address</label> <input id="Address" name="Address"
+                                                                                            class="form-control"/></div>
+                        <div class="form-group"><label for="zipcode">Zipcode</label> <input id="zipcode" name="zipcode"
+                                                                                            class="form-control"/></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="edit-safebtn" type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="deletemodal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"><h5 class="modal-title">Delete person</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="form-group"><label for="delete_id">ID</label> <input id="delete_id" name="delete_id"
+                                                                                  class="form-control"/></div>
+                        <div class="modal-body"><p>Confirm the person you want to delete and safe changes</p></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="delete-safebtn" type="button" class="btn btn-primary">Safe changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h6>Get persons by Hobby (name)</h6>
+            <ul id="hobbies"></ul>
+            <form id="hobby_inputform"><input id="hobby_textinput"/>
+                <button id="getbyhobbybtn">Submit</button>
+            </form>
+            <br><h6>Get persons by phone</h6>
+            <ul id="phones"></ul>
+            <form id="phone_inputform"><input id="phone_textinput"/>
+                <button id="getbyphonebtn">Submit</button>
+                <br><br>
+                <button id="createPerson_btn" type="button" class="btn btn-primary">Create Person</button>
+                <br><br>
+                <form><label for="create_fname">First name:</label><br><input id="create_fname" name="create_fname"><br><label
+                        for="create_lname">Last name:</label><br><input id="create_lname" name="create_lname"><br><label
+                        for="create_phone">Phone number:</label><br><input id="create_phone"
+                                                                           name="create_phone"><br><label
+                        for="create_email">Email address:</label><br><input id="create_email"
+                                                                            name="create_email"><br><label
+                        for="create_address">Address:</label><br><input id="create_address"
+                                                                        name="create_address"><br><label
+                        for="create_zipcode">Zipcode:</label><br><input id="create_zipcode" name="create_zipcode">
+                </form>
+            </form>
+        </div>
+        <div id="cityinfo_html" style="display:none;"><h3 style="text-align: center;">Cityinfo</h3><h6>Get City by
+            zipcode</h6>
+            <ul id="cities"></ul>
+            <form id="city_inputform"><input id="zipcode_textinput"/>
+                <button id="getbyzipcodebtn">Enter</button>
+            </form>
+            <br><h6 id="ex2p">List of all cities</h6>
+            <table id="cityinfo_table" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Zipcode</th>
+                    <th>City</th>
+                </tr>
+                </thead>
+                <tbody id="cityrows"></tbody>
+            </table>
+        </div>
+        <div id="ex3_html" style="display:none;"><h3>Ex-3</h3>
+            <p>Add your basic HTML for Exercise 3 here</p>
+            <div class="row" style="min-height: 5em;">
+                <div class="col-md-8 pre-scrollable" style="background-color: lightgrey;"><h5>All Users</h5>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Age</th>
+                            <th>Name</th>
+                            <th></th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody id="allUserRows">
+                        <tbody></tbody>
+                        </tbody></table>
+                </div>
+                <div class="col-md-4" style="background-color: powderblue;"><h5>Find User</h5></div>
+            </div>
+            <div class="row" style="min-height: 5em;">
+                <div class="col-md-4" style="background-color: powderblue;"><h5>Add User</h5></div>
+                <div class="col-md-4" style="background-color: lightgrey;"><h5>Edit User</h5></div>
+                <div class="col-md-4" style="background-color: powderblue;"><h5>Delete User</h5></div>
+            </div>
+        </div>
+        <div id="about_html" style="display:none;"><h3 style="text-align: center;">About</h3><h4
+                style="text-align: center;">CA1 Single Page Application</h4>
+            <h5 style="text-align: center;">Name: Abdi Abdulle<h5 style="text-align: center;">Group: A6</h5></h5>
+        </div>
+    </div><!-- #################################################################-->
+    <!-- #################################################################-->
+    <script src="../../../../CA1SPA/SimpleWebpackBabelForPlainJS/build/bundle.js"></script>
+</div>
+</body>
+</html>
